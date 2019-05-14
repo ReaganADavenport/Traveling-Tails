@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar {
+    display: flex;
+    font-size: 16px;
+    padding: 1rem;
+    letter-spacing: 0.4rem;
+}
+
+.body-wrapper {
+    height: calc(100vh - 12.25rem);
+   
+}
+
+
+
