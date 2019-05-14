@@ -14,14 +14,41 @@ body {
 .nav-bar {
     display: flex;
     font-size: 16px;
-    padding: 1rem;
+    padding: 0 1rem;
     letter-spacing: 0.4rem;
 }
 
 .body-wrapper {
-    height: calc(100vh - 12.25rem);
-   
+    /* height: calc(100vh - 12.25rem); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* .title {
+    display: flex;
+    align-content: center;
+} */
+/* svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 4;
+}
 
+#curve {
+    fill:transparent;
+}
+
+text {
+    fill: #6B7A8F;
+} */
+
+.first-dog {
+    width: 300px;
+    height: 300px;
+    background-image: url("Labrador-Retriever-Orange-Edition.png");
+    background-size: cover;
+}
 
