@@ -1,5 +1,8 @@
 "use strict"
-const information = 
+let hotelInfo=`https://maps.googleapis.com/maps/api/place/textsearch/xml?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+let parksInfo=`https://maps.googleapis.com/maps/api/place/textsearch/xml?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+let storeInfo=`https://maps.googleapis.com/maps/api/place/textsearch/xml?query=stores-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+let vetInfo=`https://maps.googleapis.com/maps/api/place/textsearch/xml?query=vets-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
 
 function get(url) {
     return fetch(url)
@@ -26,24 +29,61 @@ function markHotels(object){
     });
 }
 
-function updateMap() {
-    get(information)
-    .then(function(response){
-             
-    }); 
+
+function markParks(object){
+    object.forEach(park => {
+        const lat = object.result.geometry.location.lat;
+        const lng = object.result.geometry.location.lng;
+
+        const marker = new google.maps.Marker({
+            position:{lat, lng},
+            map: map
+        });
+    });
 }
 
+function markPetStores(object){
+    object.forEach(store => {
+        const lat = object.result.geometry.location.lat;
+        const lng = object.result.geometry.location.lng;
 
-// function TESTmarkHotels(object1, object2){
-//     object.forEach(hotel => {
-//         const lat = object1;
-//         const lng = object2;
+        const marker = new google.maps.Marker({
+            position:{lat, lng},
+            map: map
+        });
+    });
+}
 
-//         const marker = new google.maps.Marker({
-//             position:{lat, lng},
-//             map: map
-//         });
-//     });
-// }
+function markVets(object){
+    object.forEach(vet => {
+        const lat = object.result.geometry.location.lat;
+        const lng = object.result.geometry.location.lng;
 
-// TESTmarkHotels(33.8487, -84.3733);
+        const marker = new google.maps.Marker({
+            position:{lat, lng},
+            map: map
+        });
+    });
+}
+
+function updateMap() {
+    get(hotelInfo)
+    .then(function(response){
+        markHotels(response);
+    }); 
+
+    get(parksInfo)
+    .then(function(response){
+        markParks(response);
+    })
+
+    get(storeInfo)
+    .then(function(response){
+        markPetStores(response);
+    })
+
+    get(vetInfo)
+    .then(function(response){
+        markVets(response);
+    })
+}
