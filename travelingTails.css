@@ -51,5 +51,12 @@ text {
     fill: #6B7A8F;
 } */
 
+input{
+    border-radius: 25px;
+    border: 1px solid grey;
+    max-width: 35rem;
+    width: 100%;
+    padding: 8px;
+}
 
 
