@@ -32,3 +32,18 @@ function updateMap() {
              
     }); 
 }
+
+
+// function TESTmarkHotels(object1, object2){
+//     object.forEach(hotel => {
+//         const lat = object1;
+//         const lng = object2;
+
+//         const marker = new google.maps.Marker({
+//             position:{lat, lng},
+//             map: map
+//         });
+//     });
+// }
+
+// TESTmarkHotels(33.8487, -84.3733);
