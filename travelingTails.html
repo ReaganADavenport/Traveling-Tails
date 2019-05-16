@@ -18,16 +18,35 @@
                     <!-- <textPath xlink:href="#curve">Traveling Tails</textPath>
                 </text>
             </svg> -->
-    
-            <div class="inner-body wrapper">
+            <div id="inner-body-wrapper">
                 <h1 class="title">Traveling Tails</h1>
                 <div class="first-dog"></div>
-                <input id="search-bar" type="text" placeholder="Enter a zip code."> 
+                <input id="search-bar" type="search" placeholder="Enter a zip code."> 
                 <button id="first-page-button">Fetch!</button>
             </div> 
+            <div id="second-page" style="display:none";>
+                <div id="map"></div>
+                <!-- <script>
+                    function initMap(){
+                        const options = {
+                            zoom: 10,
+                            center: {lat:response.result.geometry.location.lat,lng:response.result.geometry.location.lng}
+                            }
+                            const map = new google.maps.Map(document.getElementById('map'), options);
+        
+                            // const marker = new google.maps.Marker({
+                            //     position:{lat:33.8487, lng:-84.3733},
+                            //     map: map
+                            // });
+                        }
+                </script> -->
+                <figure class="ruff-vert-dog">
+                    <img class="image-dog2" src="https://ya-webdesign.com/images250_/dog-on-hind-legs-png-5.png"/>
+                </figure>   
+            </div>
         </main>
+        
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&callback=initMap"></script>
         <script src="travelingTails.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&callback=initMap
-        "></script>
     </body>
 </html>
