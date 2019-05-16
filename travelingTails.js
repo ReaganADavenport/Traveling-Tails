@@ -6,8 +6,10 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 
 // let locationInput = locationInput1.innerHTML;
-const locationValue = locationInput.value;
+let locationValue;
 // console.log("location", locationValue);
+
+const placeID= ``
 
 const hotelInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/xml?query=hotels-in-${locationValue}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
 
@@ -102,9 +104,14 @@ function updateMap() {
     })
 }
 
+callBack(loc){
+
+}
+
 
 firstButton.addEventListener('click', function(e){
     e.preventDefault;
+    locationValue = locationInput.value;
     // toggle(secondPage);
     // console.log(hotel.result.geometry.location.lat);
     if (secondPage.style.display === 'none') {
@@ -115,23 +122,4 @@ firstButton.addEventListener('click', function(e){
         firstPage.style.display = 'block';
     }
     updateMap();    
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})Value
