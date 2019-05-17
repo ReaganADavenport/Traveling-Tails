@@ -67,7 +67,7 @@ function setHotelLocations() {
     let hotelInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Adding in the hotel icon 
     let hotelIcon = document.createElement('img');
-    hotelIcon.src = "006-pet-house.png";
+    hotelIcon.src = "Images/006-pet-house.png";
 
     get(hotelInfo)
     .then(function(response) {
@@ -109,7 +109,7 @@ function setParkLocations() {
     let parksInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Adding in the park icon 
     let parkIcon = document.createElement('img');
-    parkIcon.src = "002-sport.png";
+    parkIcon.src = "Images/002-sport.png";
 
     get(parksInfo)
     .then(function(response) {
@@ -152,7 +152,7 @@ function setVetLocations() {
     let vetsInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=vets-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Setting and creating icon
     let vetIcon = document.createElement('img');
-    vetIcon.src = "005-stethoscope.png";
+    vetIcon.src = "Images/005-stethoscope.png";
 
     get(vetsInfo)
     .then(function(response) {
@@ -196,7 +196,7 @@ function setStoreLocations() {
 
     //Setting and creating icon
     let storeIcon = document.createElement('img');
-    storeIcon.src = "003-commerce-and-shopping.png";
+    storeIcon.src = "Images/003-commerce-and-shopping.png";
 
     get(storesInfo)
     .then(function(response) {
