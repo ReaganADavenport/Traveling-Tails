@@ -8,9 +8,6 @@ const storesButton =document.querySelector('#stores-button');
 
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
-// const locationInput = document.querySelector('#search-bar');
-// const locationValue = locationInput.value;
-// let locationValue;
 
 firstButton.addEventListener('click', function(e){
     e.preventDefault;
@@ -93,7 +90,6 @@ function setHotelLocations() {
         const longArray = coordArray[1];
         const nomArray = coordArray[2];
         const rateArray = coordArray[3];
-        console.log(coordArray);
         markPlaces(nomArray,rateArray,latArray,longArray,latArray,longArray);
         });
 
@@ -125,7 +121,7 @@ function setParkLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [nomArray,rateArray,latArray, longArray];
+    return [nameArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
@@ -164,7 +160,7 @@ function setVetLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [nomArray,rateArray,latArray, longArray];
+    return [nameArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
@@ -203,7 +199,7 @@ function setStoreLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [nomArray,rateArray,latArray, longArray];
+    return [nameArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
