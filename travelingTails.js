@@ -35,53 +35,101 @@ function get(url) {
 };
 
 function setLocations() {
-    console.log("set locations being run");
+    // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
+
+    // Grabbing the API library for hotels and inputing the user input 
     let hotelInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
- 
-    // const hotelInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
-        
+
+    // Grabbing just the location of the inputed city
+    let inputDestination = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA`;
+    
+    //Makes the screen go to the location of the inputed city
+    get(inputDestination)
+    .then(function(response) {
+        const destinationlat = Number(response.results[0].geometry.location.lat);
+        const destinationlong = Number(response.results[0].geometry.location.lng);
+        initMap(destinationlat, destinationlong);
+    });
+
     get(hotelInfo)
     .then(function(response) {
         const results = response.results;
         let latArray = [];
         let longArray = [];
-        // initMap(latArray,longArray);
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
             latArray.push(lat);
             longArray.push(long);
-            // take the result.geometry.location.lat,
-            // result.geometry.location.log and 
-            // pass them into initMap();
         });
     return [latArray, longArray];
     })
+
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        initMap(latArray, longArray);
-    })
-        
-    // initMap(lat,long);
-    // markHotels(hotelInfo);  
-};
-// let latArray = [];
-// let longArray = [];
+        markPlaces(latArray,longArray);
+    });
 
-function initMap(hotelLat, hotelLong){
+};
+          
+// function setParkLocation() {
+//     // Grabbing the user input
+//     const locationInput = document.querySelector('#search-bar').value;
+
+//     // Grabbing the API library for parks and inputing the user input 
+//     let parksInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+
+//     get(parksInfo)
+//         .then(function(response) {
+//             const results = response.results;
+//             console.log(results);
+//             let parklatArray = [];
+//             let parklongArray = [];
+//             results.forEach((result) => {
+//                 // console.log("result is", result);
+//                 const lat = Number(result.geometry.location.lat);
+//                 const long = Number(result.geometry.location.lng);
+//                 parklatArray.push(lat);
+//                 parklongArray.push(long);
+//             });
+//         return [parklatArray, parklongArray];
+//         })
+
+//         .then(function(coordArray) {
+//             console.log()
+//             const parklatArray = coordArray[0];
+//             const parklongArray = coordArray[1];
+//             initMap(parklatArray, parklongArray);
+//         });
+// }         
+
+
+
+function initMap(latitude, longitude){
     const options = {
         zoom: 10,
-        center: {lat:hotelLat[0],lng:hotelLong[0]}
+        //took out [0]s 
+        center: {lat:latitude,lng:longitude},
         }
-        const map = new google.maps.Map(document.getElementById('map'), options);
-        new google.maps.Marker({
-            position:{lat: hotelLat[0], lng:hotelLong[0]},
-            map: map
-        });
-    }
+        const NewMap = new google.maps.Map(document.getElementById('map'), options);
+        // new google.maps.Marker({
+        //     position:{lat: latitude[0], lng:longitude[0]},
+        //     map: map
+        // });
+}
+
+
+function markPlaces(latitude, longitude) {
+    // const map = new google.maps.Map(document.getElementById('map'));
+    new google.maps.Marker({
+        position:{lat: latitude[0], lng: longitude[0]},
+        map: map
+    });
+}
+
 
 
 // function markHotels(object){
