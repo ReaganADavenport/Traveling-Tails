@@ -72,20 +72,29 @@ function setHotelLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [latArray, longArray, nameArray, rateArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        console.log(coordArray);
+        markPlaces(nomArray,rateArray,latArray,longArray,latArray,longArray);
         });
 
 };
@@ -93,6 +102,7 @@ function setHotelLocations() {
 function setParkLocations() {
     // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
+    
 
     // Grabbing the API library for parks and inputing the user input
     let parksInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
@@ -102,20 +112,28 @@ function setParkLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [nomArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -133,20 +151,28 @@ function setVetLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [nomArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -164,25 +190,33 @@ function setStoreLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [nomArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
 //Making the map, setting it to the first coordinates in the location inputed Array
-function markPlaces(latitude, longitude, inDesLat, inDesLong) {
+function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
     const options = {
         zoom: 10,
         //took out [0]s 
@@ -191,10 +225,18 @@ function markPlaces(latitude, longitude, inDesLat, inDesLong) {
     const map = new google.maps.Map(document.getElementById('map'), options);
 //Places a marker on each location
     for (let i = 0; i <= latitude.length; i++) {
-        new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
             map: map
         });
+
+        let infoWindow = new google.maps.InfoWindow({
+            content: `<h2>${name[i]}, ${rating[i]}</h2>`
+        });
+
+        marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+        })
     }
 }
 
@@ -203,6 +245,10 @@ function markPlaces(latitude, longitude, inDesLat, inDesLong) {
 
 
 
+
+// callBack(loc){
+
+// }
 
 
 
