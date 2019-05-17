@@ -91,18 +91,16 @@ function setHotelLocations() {
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        console.log(coordArray);
-        markPlaces(nomArray,rateArray,latArray,longArray,latArray,longArray);
-        });
+        markPlaces(nameArray,rateArray,latArray,longArray,latArray,longArray);
+    });
 
 };
 
 function setParkLocations() {
     // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
-    
 
     // Grabbing the API library for parks and inputing the user input
     let parksInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
@@ -125,15 +123,15 @@ function setParkLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [nomArray,rateArray,latArray, longArray];
+    return [latArray, longArray,nameArray,rateArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -164,15 +162,15 @@ function setVetLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [nomArray,rateArray,latArray, longArray];
+    return [latArray, longArray,nameArray,rateArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -203,15 +201,15 @@ function setStoreLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [nomArray,rateArray,latArray, longArray];
+    return [latArray, longArray,nameArray,rateArray,];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -221,9 +219,9 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
         zoom: 10,
         //took out [0]s 
         center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
-        }
-    const map = new google.maps.Map(document.getElementById('map'), options);
-//Places a marker on each location
+    }
+    let map = new google.maps.Map(document.getElementById('map'), options);
+    //Places a marker on each location
     for (let i = 0; i <= latitude.length; i++) {
         let marker = new google.maps.Marker({
             position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
@@ -231,7 +229,7 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
         });
 
         let infoWindow = new google.maps.InfoWindow({
-            content: `<h2>${name[i]}, ${rating[i]}</h2>`
+            content:`<h2>${name[i]}, ${rating[i]}</h2>`
         });
 
         marker.addListener('click', function(){
