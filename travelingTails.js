@@ -46,16 +46,19 @@ function setLocations() {
         let latArray = [];
         let longArray = [];
         let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
             const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
             nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray,nameArray];
+    return [latArray, longArray, nameArray, rateArray];
     })
 
     .then(function(coordArray) {
@@ -84,8 +87,7 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
         });
 
         let infoWindow = new google.maps.InfoWindow({
-            content: `<h1>${name[i]}</h1>`,
-            content: `<h1>${rating}/5</h1>`
+            content: `<h2>${name[i]}, ${rating[i]}</h2>`
         });
 
         marker.addListener('click', function(){
