@@ -102,6 +102,7 @@ function setHotelLocations() {
 function setParkLocations() {
     // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
+    
 
     // Grabbing the API library for parks and inputing the user input
     let parksInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
@@ -111,20 +112,28 @@ function setParkLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [nomArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -142,20 +151,28 @@ function setVetLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [nomArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
@@ -173,20 +190,28 @@ function setStoreLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
         });
-    return [latArray, longArray];
+    return [nomArray,rateArray,latArray, longArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray, latArray,longArray);
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
+        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray);
         });
 
 };
