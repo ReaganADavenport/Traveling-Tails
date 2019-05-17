@@ -58,7 +58,6 @@ function setLocations() {
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        console.log(coordArray);
         markPlaces(latArray,longArray, latArray,longArray);
         });
 
@@ -69,12 +68,13 @@ function markPlaces(latitude, longitude, inDesLat, inDesLong) {
     const options = {
         zoom: 10,
         //took out [0]s 
-        center: {lat:inDesLat[0],lng:inDesLong[0]},
+        center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
         }
     const map = new google.maps.Map(document.getElementById('map'), options);
+//Places a marker on each location
     for (let i = 0; i <= latitude.length; i++) {
         new google.maps.Marker({
-            position:{lat: latitude[i], lng: longitude[i]},
+            position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
             map: map
         });
     }
