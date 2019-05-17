@@ -55,20 +55,22 @@ function setLocations() {
             longArray.push(long);
             nameArray.push(name);
         });
-    return [latArray, longArray];
+    return [latArray, longArray,nameArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
+        const nomArray = coordArray[2];
+        const rateArray = coordArray[3];
         console.log(coordArray);
-        markPlaces(latArray,longArray, latArray,longArray);
+        markPlaces(nomArray,rateArray,latArray,longArray,latArray,longArray);
         });
 
 };
 
 //Making the map, setting it to the first coordinates in the location inputed Array
-function markPlaces(name,latitude, longitude, inDesLat, inDesLong) {
+function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
     const options = {
         zoom: 10,
         //took out [0]s 
@@ -82,7 +84,8 @@ function markPlaces(name,latitude, longitude, inDesLat, inDesLong) {
         });
 
         let infoWindow = new google.maps.InfoWindow({
-            content: `<h1>${name}</h1>`
+            content: `<h1>${name[i]}</h1>`,
+            content: `<h1>${rating}/5</h1>`
         });
 
         marker.addListener('click', function(){
