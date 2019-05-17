@@ -17,8 +17,7 @@ firstButton.addEventListener('click', function(e){
     } else {
         secondPage.style.display = 'none';
         firstPage.style.display = 'block';
-    }
-    // updateMap();    
+    }    
 });
 
 function get(url) {
@@ -41,17 +40,6 @@ function setLocations() {
     // Grabbing the API library for hotels and inputing the user input 
     let hotelInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
 
-    // Grabbing just the location of the inputed city
-    let inputDestination = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA`;
-    
-    //Makes the screen go to the location of the inputed city
-    get(inputDestination)
-    .then(function(response) {
-        const destinationlat = Number(response.results[0].geometry.location.lat);
-        const destinationlong = Number(response.results[0].geometry.location.lng);
-        initMap(destinationlat, destinationlong);
-    });
-
     get(hotelInfo)
     .then(function(response) {
         const results = response.results;
@@ -70,60 +58,19 @@ function setLocations() {
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        markPlaces(latArray,longArray);
-    });
+        markPlaces(latArray,longArray, latArray,longArray);
+        });
 
 };
-          
-// function setParkLocation() {
-//     // Grabbing the user input
-//     const locationInput = document.querySelector('#search-bar').value;
 
-//     // Grabbing the API library for parks and inputing the user input 
-//     let parksInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
-
-//     get(parksInfo)
-//         .then(function(response) {
-//             const results = response.results;
-//             console.log(results);
-//             let parklatArray = [];
-//             let parklongArray = [];
-//             results.forEach((result) => {
-//                 // console.log("result is", result);
-//                 const lat = Number(result.geometry.location.lat);
-//                 const long = Number(result.geometry.location.lng);
-//                 parklatArray.push(lat);
-//                 parklongArray.push(long);
-//             });
-//         return [parklatArray, parklongArray];
-//         })
-
-//         .then(function(coordArray) {
-//             console.log()
-//             const parklatArray = coordArray[0];
-//             const parklongArray = coordArray[1];
-//             initMap(parklatArray, parklongArray);
-//         });
-// }         
-
-
-
-function initMap(latitude, longitude){
+//Making the map, setting it to the first coordinates in the location inputed Array
+function markPlaces(latitude, longitude, inDesLat, inDesLong) {
     const options = {
         zoom: 10,
         //took out [0]s 
-        center: {lat:latitude,lng:longitude},
+        center: {lat:inDesLat[0],lng:inDesLong[0]},
         }
-        const NewMap = new google.maps.Map(document.getElementById('map'), options);
-        // new google.maps.Marker({
-        //     position:{lat: latitude[0], lng:longitude[0]},
-        //     map: map
-        // });
-}
-
-
-function markPlaces(latitude, longitude) {
-    // const map = new google.maps.Map(document.getElementById('map'));
+    const map = new google.maps.Map(document.getElementById('map'), options);
     new google.maps.Marker({
         position:{lat: latitude[0], lng: longitude[0]},
         map: map
