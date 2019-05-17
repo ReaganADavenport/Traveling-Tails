@@ -66,10 +66,19 @@ input{
     width: 100%;
 }
 
+<<<<<<< HEAD
 infoWindow{
     color:black;
     text-decoration: none;
 }
+=======
+#hotels-button, #parks-button, #vets-button, #stores-button {
+    height: 64px;
+    width: 64px;
+}
+
+
+>>>>>>> d7bb717d4137abd042bf6ca32d1bcff426682685
 
 
 

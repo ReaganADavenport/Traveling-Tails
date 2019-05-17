@@ -6,11 +6,9 @@ const parksButton =document.querySelector('#parks-button');
 const vetsButton =document.querySelector('#vets-button');
 const storesButton =document.querySelector('#stores-button');
 
+
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
-// const locationInput = document.querySelector('#search-bar');
-// const locationValue = locationInput.value;
-// let locationValue;
 
 firstButton.addEventListener('click', function(e){
     e.preventDefault;
@@ -60,12 +58,16 @@ function get(url) {
         });
 };
 
+// This is correct and the path is correct
+
 function setHotelLocations() {
     // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
-
     // Grabbing the API library for hotels and inputing the user input 
     let hotelInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+    //Adding in the hotel icon 
+    let hotelIcon = document.createElement('img');
+    hotelIcon.src = "006-pet-house.png";
 
     get(hotelInfo)
     .then(function(response) {
@@ -93,8 +95,9 @@ function setHotelLocations() {
         const longArray = coordArray[1];
         const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nameArray,rateArray,latArray,longArray,latArray,longArray);
-    });
+        const iconImage = hotelIcon.src;
+        markPlaces(nameArray,rateArray,latArray,longArray,latArray,longArray,iconImage);
+        });
 
 };
 
@@ -104,6 +107,9 @@ function setParkLocations() {
 
     // Grabbing the API library for parks and inputing the user input
     let parksInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+    //Adding in the park icon 
+    let parkIcon = document.createElement('img');
+    parkIcon.src = "002-sport.png";
 
     get(parksInfo)
     .then(function(response) {
@@ -131,7 +137,8 @@ function setParkLocations() {
         const longArray = coordArray[1];
         const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray);
+        const iconImage = parkIcon.src;
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray,iconImage);
         });
 
 };
@@ -141,8 +148,11 @@ function setVetLocations() {
     // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
 
-    // Grabbing the API library for parks and inputing the user input
+    // Grabbing the API library for vets and inputing the user input
     let vetsInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=vets-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+    //Setting and creating icon
+    let vetIcon = document.createElement('img');
+    vetIcon.src = "005-stethoscope.png";
 
     get(vetsInfo)
     .then(function(response) {
@@ -170,7 +180,8 @@ function setVetLocations() {
         const longArray = coordArray[1];
         const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray);
+        const iconImage = vetIcon.src;
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
         });
 
 };
@@ -182,6 +193,10 @@ function setStoreLocations() {
 
     // Grabbing the API library for parks and inputing the user input
     let storesInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=stores-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+
+    //Setting and creating icon
+    let storeIcon = document.createElement('img');
+    storeIcon.src = "003-commerce-and-shopping.png";
 
     get(storesInfo)
     .then(function(response) {
@@ -209,12 +224,13 @@ function setStoreLocations() {
         const longArray = coordArray[1];
         const nameArray = coordArray[2];
         const rateArray = coordArray[3];
-        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray);
+        const iconImage = storeIcon.src;
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
         });
 
 };
 //Making the map, setting it to the first coordinates in the location inputed Array
-function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
+function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, iconPix) {
     const options = {
         zoom: 10,
         //took out [0]s 
@@ -225,7 +241,8 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
     for (let i = 0; i <= latitude.length; i++) {
         let marker = new google.maps.Marker({
             position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
-            map: map
+            map: map,
+            icon: iconPix
         });
 
         let headName = `<h2>${name[i]}</h2>`;
