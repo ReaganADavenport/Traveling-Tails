@@ -244,9 +244,9 @@ function markPlaces(latitude, longitude) {
 //     })
 // }
 
-callBack(loc){
+// callBack(loc){
 
-}
+// }
 
 
 
