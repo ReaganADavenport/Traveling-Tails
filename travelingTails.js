@@ -228,8 +228,12 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
             map: map
         });
 
+        let headName = `<h2>${name[i]}</h2>`;
+        let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
+        url === headName;
+
         let infoWindow = new google.maps.InfoWindow({
-            content:`<h2>${name[i]}, ${rating[i]}</h2>`
+            content: url+ `<h2>${rating[i]}</h2>`
         });
 
         marker.addListener('click', function(){
