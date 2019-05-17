@@ -233,11 +233,14 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
         url === headName;
 
         let infoWindow = new google.maps.InfoWindow({
-            content: url+ `<h2>${rating[i]}</h2>`
+            content: url+ `<h2>${rating[i]}</h2>`,
         });
+
+        
 
         marker.addListener('click', function(){
             infoWindow.open(map, marker);
+        
         })
     }
 }
