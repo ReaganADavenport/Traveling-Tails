@@ -93,10 +93,10 @@ function setHotelLocations() {
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
         const iconImage = hotelIcon.src;
-        markPlaces(nomArray,rateArray,latArray,longArray,latArray,longArray,iconImage);
+        markPlaces(nameArray,rateArray,latArray,longArray,latArray,longArray,iconImage);
         });
 
 };
@@ -129,16 +129,16 @@ function setParkLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [latArray, longArray, nameArray,rateArray];
+    return [latArray, longArray,nameArray,rateArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
         const iconImage = parkIcon.src;
-        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray,iconImage);
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray,iconImage);
         });
 
 };
@@ -172,16 +172,16 @@ function setVetLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [latArray, longArray, nameArray,rateArray,];
+    return [latArray, longArray,nameArray,rateArray];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
         const iconImage = vetIcon.src;
-        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
         });
 
 };
@@ -216,16 +216,16 @@ function setStoreLocations() {
             nameArray.push(name);
             rateArray.push(rate);
         });
-    return [latArray, longArray, nameArray, rateArray];
+    return [latArray, longArray,nameArray,rateArray,];
     })
 
     .then(function(coordArray) {
         const latArray = coordArray[0];
         const longArray = coordArray[1];
-        const nomArray = coordArray[2];
+        const nameArray = coordArray[2];
         const rateArray = coordArray[3];
         const iconImage = storeIcon.src;
-        markPlaces(nomArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
         });
 
 };
@@ -235,9 +235,9 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         zoom: 10,
         //took out [0]s 
         center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
-        }
-    const map = new google.maps.Map(document.getElementById('map'), options);
-//Places a marker on each location
+    }
+    let map = new google.maps.Map(document.getElementById('map'), options);
+    //Places a marker on each location
     for (let i = 0; i <= latitude.length; i++) {
         let marker = new google.maps.Marker({
             position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
@@ -245,42 +245,19 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             icon: iconPix
         });
 
+        let headName = `<h2>${name[i]}</h2>`;
+        let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
+        url === headName;
+
         let infoWindow = new google.maps.InfoWindow({
-            content: `<h2>${name[i]}, ${rating[i]}</h2>`
+            content: url+ `<h2>${rating[i]}</h2>`,
         });
+
+        
 
         marker.addListener('click', function(){
             infoWindow.open(map, marker);
+        
         })
     }
 }
-
- 
-
-
-
-
-
-// callBack(loc){
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
