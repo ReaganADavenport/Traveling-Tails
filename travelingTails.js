@@ -241,33 +241,3 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong) {
         })
     }
 }
-
- 
-
-
-
-
-
-// callBack(loc){
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
