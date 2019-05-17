@@ -45,12 +45,15 @@ function setLocations() {
         const results = response.results;
         let latArray = [];
         let longArray = [];
+        let nameArray = [];
         results.forEach((result) => {
             // console.log("result is", result);
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
             latArray.push(lat);
             longArray.push(long);
+            nameArray.push(name);
         });
     return [latArray, longArray];
     })
@@ -65,7 +68,7 @@ function setLocations() {
 };
 
 //Making the map, setting it to the first coordinates in the location inputed Array
-function markPlaces(latitude, longitude, inDesLat, inDesLong) {
+function markPlaces(name,latitude, longitude, inDesLat, inDesLong) {
     const options = {
         zoom: 10,
         //took out [0]s 
@@ -73,10 +76,18 @@ function markPlaces(latitude, longitude, inDesLat, inDesLong) {
         }
     const map = new google.maps.Map(document.getElementById('map'), options);
     for (let i = 0; i <= latitude.length; i++) {
-        new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position:{lat: latitude[i], lng: longitude[i]},
             map: map
         });
+
+        let infoWindow = new google.maps.InfoWindow({
+            content: `<h1>${name}</h1>`
+        });
+
+        marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+        })
     }
 }
 
