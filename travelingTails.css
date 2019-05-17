@@ -22,6 +22,7 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    width: 100%;
 }
 
 .inner-body-wrapper {
@@ -46,7 +47,7 @@ input{
 }
 
 .ruff-map-wrapper {
-    width: 100%;
+    width: 80%;
 }
 
 .image-dog2 {
@@ -56,7 +57,7 @@ input{
 
 #map {
     height: 400px;
-    width: 400px;
+    width: 100%;
 }
 
 
