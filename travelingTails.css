@@ -60,6 +60,11 @@ input{
     width: 100%;
 }
 
+#hotels-button, #parks-button, #vets-button, #stores-button {
+    height: 64px;
+    width: 64px;
+}
+
 
 
 
