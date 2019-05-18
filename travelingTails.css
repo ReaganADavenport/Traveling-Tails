@@ -78,8 +78,14 @@ infoWindow{
 }
 
 #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
+    cursor: pointer;
     height: 64px;
+    transition: all ease-in-out 0.2s;
     width: 64px;
+}
+
+#hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button:hover{
+    
 }
 
 
