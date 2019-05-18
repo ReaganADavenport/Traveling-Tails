@@ -4,7 +4,7 @@
 
 html {
     /* font-family: sans-serif; */
-    font-family: 'Concert One', cursive;
+    font-family: 'Rammetto One', cursive;
 }
 
 body {
@@ -54,17 +54,20 @@ input{
 }
 
 .image-dog2 {
-    width: 50%;
+    background-image: url('')
     height: 100%;
+    width: 50%;
 }
 
 #second-page{
+    display:flex;
+    flex-direction: row;
     width: 100%;
 }
 
 #map {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     height: 400px;
     width: 100%;
 }
@@ -77,6 +80,14 @@ infoWindow{
 #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
     height: 64px;
     width: 64px;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+    #second-page{
+        width: 50%;
+    }
 }
 
 
