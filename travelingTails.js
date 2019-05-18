@@ -6,7 +6,7 @@ const parksButton =document.querySelector('#parks-button');
 const vetsButton =document.querySelector('#vets-button');
 const storesButton =document.querySelector('#stores-button');
 const restaurantButton =document.querySelector('#restaurant-button');
-
+const homeText =document.querySelector('.home-text');
 
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
@@ -24,6 +24,15 @@ firstButton.addEventListener('click', function(e){
     }    
 });
 
+//Adding click function to HOME text
+homeText.addEventListener('click', function(e){
+    e.preventDefault;
+    // toggle(secondPage);
+    if (firstPage.style.display === 'none') {
+        firstPage.style.display = 'block';
+        secondPage.style.display = 'none';
+    }     
+});
 
 parksButton.addEventListener('click', function(e) {
     e.preventDefault;
