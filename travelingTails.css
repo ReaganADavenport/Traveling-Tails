@@ -3,7 +3,8 @@
 }
 
 html {
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
+    font-family: 'Rammetto One', cursive;
 }
 
 body {
@@ -53,17 +54,20 @@ input{
 }
 
 .image-dog2 {
-    width: 50%;
+    background-image: url('')
     height: 100%;
+    width: 50%;
 }
 
 #second-page{
+    display:flex;
+    flex-direction: row;
     width: 100%;
 }
 
 #map {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     height: 400px;
     width: 100%;
 }
@@ -74,11 +78,26 @@ infoWindow{
 }
 
 #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
+
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
     height: 75px;
     width: 75px;
     border-radius: 50%;
     border: 6px solid #B22222;
     padding: 8px;
+}
+
+#hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button:hover{
+    
+}
+
+
+
+@media only screen and (min-width: 600px) {
+    #second-page{
+        width: 50%;
+    }
 }
 
 
