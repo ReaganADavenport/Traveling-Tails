@@ -12,8 +12,15 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 
 firstButton.addEventListener('click', function(e){
-    e.preventDefault;
-    setHotelLocations();
+    if (document.querySelector('#search-bar').value === ''){
+        alert('Enter a zip code');
+        secondPage.style.display = 'block';
+        firstPage.style.display = 'none';
+    } else {
+        e.preventDefault;
+        setHotelLocations();
+    }
+    
     // toggle(secondPage);
     if (secondPage.style.display === 'none') {
         secondPage.style.display = 'block';
@@ -21,7 +28,9 @@ firstButton.addEventListener('click', function(e){
     } else {
         secondPage.style.display = 'none';
         firstPage.style.display = 'block';
-    }    
+    } 
+    
+    
 });
 
 //Adding click function to HOME text
@@ -241,7 +250,7 @@ function setStoreLocations() {
         const rateArray = coordArray[3];
         const iconImage = storeIcon.src;
         markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
-        });
+    });
 
 };
 
@@ -311,8 +320,6 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         let infoWindow = new google.maps.InfoWindow({
             content: url+ `<h2>${rating[i]}</h2>`,
         });
-
-        
 
         marker.addListener('click', function(){
             infoWindow.open(map, marker);
