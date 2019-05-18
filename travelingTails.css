@@ -82,9 +82,11 @@ body {
     margin: 20px 0 60px 0;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
-
 }
 
+#first-page-button:hover {
+    background-color: rgba(210, 59, 59, 0.913);
+}
 #second-page{
     width: 98%;
     display: flex;
