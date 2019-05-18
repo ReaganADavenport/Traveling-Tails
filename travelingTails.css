@@ -12,63 +12,110 @@ body {
     padding: 0;
 }
 
-.nav-bar {
+.home-text {
     display: flex;
+    align-self: center;
     font-size: 16px;
-    padding: 1rem;
+    padding: 13px;
     letter-spacing: 0.4rem;
 }
-
-
 
 .body-wrapper {
     display: flex;
     justify-content: center;
-    align-content: center;
+    /* align-content: center; */
     width: 100%;
 }
 
 .inner-body-wrapper {
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-content: center;
+}
+
+.title {
+    font-size: 45px;
+}
+
+.pix-blurb-wrap {
+    display: flex;
+    flex-direction: column;
 }
 
 .first-dog {
+    display: flex;
+    align-self: center;
     width: 300px;
     height: 300px;
     background-image: url("https://media.giphy.com/media/1oIjn54GS3Bh12AR9m/giphy.gif");
     background-size: cover;
+    margin: 0;
 }
 
-input{
+.blurb-above-bar {
+    align-self: center;
+}
+
+.bar-button-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#search-bar {
     border-radius: 25px;
-    border: 1px solid grey;
+    border: 3px solid black;
     max-width: 35rem;
     width: 100%;
     padding: 8px;
+    font-weight: bold;
+    font-family: 'Rammetto One', cursive;
 }
 
-.ruff-map-wrapper {
-    width: 100%;
-}
+#first-page-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border: 3px solid black;
+    border-radius: 50%;
+    margin: 20px 0 60px 0;
+    font-weight: bold;
+    font-family: 'Rammetto One', cursive;
 
-.image-dog2 {
-    background-image: url('')
-    height: 100%;
-    width: 50%;
 }
 
 #second-page{
-    display:flex;
-    flex-direction: row;
-    width: 100%;
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.map-wrapper {
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 #map {
-    display: flex;
     /* justify-content: center; */
-    height: 400px;
+    height: 500px;
+    width: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+.dog-wrapper {
+    width: 200px;
+    height: 200px;
+}
+
+.image-dog2 {
+    background-image: url('https://media.giphy.com/media/5zvSNDhOQF2WqmHsDJ/giphy.gif');
+    background-size: cover;
+    height: 100%;
     width: 100%;
 }
 
@@ -78,7 +125,6 @@ infoWindow{
 }
 
 #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
-
     cursor: pointer;
     transition: all ease-in-out 0.2s;
     height: 75px;
@@ -94,11 +140,11 @@ infoWindow{
 
 
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
     #second-page{
         width: 50%;
     }
-}
+} */
 
 
 
