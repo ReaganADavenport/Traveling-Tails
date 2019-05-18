@@ -71,7 +71,7 @@ infoWindow{
     text-decoration: none;
 }
 
-#hotels-button, #parks-button, #vets-button, #stores-button {
+#hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
     height: 64px;
     width: 64px;
 }
