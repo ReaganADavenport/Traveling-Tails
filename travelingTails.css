@@ -20,6 +20,10 @@ body {
     letter-spacing: 0.4rem;
 }
 
+.home-text:hover {
+    text-decoration: underline;
+}
+
 .body-wrapper {
     display: flex;
     justify-content: center;
@@ -95,23 +99,27 @@ body {
     justify-content: flex-end;
 }
 
-.map-wrapper {
+.map-dog-wrap {
     display: flex;
-    margin: 0;
-    padding: 0;
+    flex-direction: row;   
+    justify-content: center;
 }
 
 #map {
     /* justify-content: center; */
     height: 500px;
-    width: 500px;
+    width: 650px;
+    border-radius: 5%;
+    border: 3px solid black;
     margin: 0;
     padding: 0;
 }
 
 .dog-wrapper {
+    display: flex;
     width: 200px;
     height: 200px;
+    align-self: flex-end;
 }
 
 .image-dog2 {
@@ -124,20 +132,28 @@ body {
 infoWindow{
     color:black;
     text-decoration: none;
+    border-radius: 7%;
+}
+
+.where-buttons-wrap {
+    display: flex;
+    justify-content: center;
 }
 
 #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
     cursor: pointer;
     transition: all ease-in-out 0.2s;
-    height: 75px;
-    width: 75px;
+    height: 108px;
+    width: 108px;
     border-radius: 50%;
     border: 6px solid #B22222;
-    padding: 8px;
+    margin: 26px;
+    font-weight: bold;
+    font-family: 'Rammetto One', cursive;
 }
 
-#hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button:hover{
-    
+#hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
+    background-color: tan;
 }
 
 
