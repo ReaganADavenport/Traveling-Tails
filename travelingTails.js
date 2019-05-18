@@ -5,7 +5,8 @@ const hotelsButton =document.querySelector('#hotels-button');
 const parksButton =document.querySelector('#parks-button');
 const vetsButton =document.querySelector('#vets-button');
 const storesButton =document.querySelector('#stores-button');
-
+const restaurantButton =document.querySelector('#restaurant-button');
+const homeText =document.querySelector('.home-text');
 
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
@@ -23,6 +24,15 @@ firstButton.addEventListener('click', function(e){
     }    
 });
 
+//Adding click function to HOME text
+homeText.addEventListener('click', function(e){
+    e.preventDefault;
+    // toggle(secondPage);
+    if (firstPage.style.display === 'none') {
+        firstPage.style.display = 'block';
+        secondPage.style.display = 'none';
+    }     
+});
 
 parksButton.addEventListener('click', function(e) {
     e.preventDefault;
@@ -42,6 +52,11 @@ vetsButton.addEventListener('click', function(e) {
 storesButton.addEventListener('click', function(e) {
     e.preventDefault;
     setStoreLocations();
+});
+
+restaurantButton.addEventListener('click', function(e) {
+    e.preventDefault;
+    setRestaurantLocations();
 });
 
 
@@ -192,7 +207,7 @@ function setStoreLocations() {
     const locationInput = document.querySelector('#search-bar').value;
 
     // Grabbing the API library for parks and inputing the user input
-    let storesInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=stores-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+    let storesInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=pet-stores-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
 
     //Setting and creating icon
     let storeIcon = document.createElement('img');
@@ -225,6 +240,49 @@ function setStoreLocations() {
         const nameArray = coordArray[2];
         const rateArray = coordArray[3];
         const iconImage = storeIcon.src;
+        markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
+        });
+
+};
+
+function setRestaurantLocations() {
+    // Grabbing the user input
+    const locationInput = document.querySelector('#search-bar').value;
+
+    // Grabbing the API library for parks and inputing the user input
+    let restaurantInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=pet_friendly_restaurants-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+
+    //Setting and creating icon
+    let restaurantIcon = document.createElement('img');
+    restaurantIcon.src = "Images/007-pet-food.png";
+
+    get(restaurantInfo)
+    .then(function(response) {
+        const results = response.results;
+        let latArray = [];
+        let longArray = [];
+        let nameArray = [];
+        let rateArray = [];
+        results.forEach((result) => {
+            // console.log("result is", result);
+            const lat = Number(result.geometry.location.lat);
+            const long = Number(result.geometry.location.lng);
+            const name = String(result.name);
+            const rate = String(result.rating);
+            latArray.push(lat);
+            longArray.push(long);
+            nameArray.push(name);
+            rateArray.push(rate);
+        });
+    return [latArray, longArray,nameArray,rateArray,];
+    })
+
+    .then(function(coordArray) {
+        const latArray = coordArray[0];
+        const longArray = coordArray[1];
+        const nameArray = coordArray[2];
+        const rateArray = coordArray[3];
+        const iconImage = restaurantIcon.src;
         markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
         });
 
