@@ -250,7 +250,7 @@ function setRestaurantLocations() {
     const locationInput = document.querySelector('#search-bar').value;
 
     // Grabbing the API library for parks and inputing the user input
-    let restaurantInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=pet_friendly_restaurants-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
+    let restaurantInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=pet-friendly+restaurants-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
 
     //Setting and creating icon
     let restaurantIcon = document.createElement('img');
