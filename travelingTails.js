@@ -335,8 +335,8 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         url === headName;
 
         if (rating[i] === '' || rating[i] === 0) {
-            let infoWindow = new google.maps.InfoWindow({
-                    content: url+ "<h2>This place has no rating yet!</h2>"
+            let infoWindow = new google.maps.infoWindow({
+                content: url+ "<h2>This place has no rating yet!</h2>"
                     // content: url+ `<h2>${rating[i]}</h2>`
             });
 
@@ -346,7 +346,7 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             });
 
         } else {
-            let infoWindow = new google.maps.InfoWindow({
+            let infoWindow = new google.maps.infoWindow({
                 // content: url+ "<h2>This place has no rating yet!</h2>"
                 content: url+ `<h2>${rating[i]}</h2>`
             });
