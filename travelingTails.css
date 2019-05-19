@@ -10,6 +10,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #c5dfe2;
 }
 
 .home-text {
@@ -144,6 +145,7 @@ body {
 .where-buttons-wrap {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .icon-style {
@@ -155,8 +157,7 @@ body {
     background-color: tan;
 }
 
-@media only screen and (min-width: 600px) {
-    
+@media only screen and (min-width: 400px) {
     .map-dog-wrap {
         display: flex;
         flex-direction: row;   
@@ -195,8 +196,10 @@ body {
         width: 108px;
         border-radius: 50%;
         border: 6px solid #B22222;
-        margin: 26px;
+        margin: 34px;
         font-weight: bold;
         font-family: 'Rammetto One', cursive;
+        font-size: 16px;
     }
     
+}
