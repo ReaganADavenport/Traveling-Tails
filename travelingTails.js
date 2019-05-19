@@ -12,11 +12,14 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 
 firstButton.addEventListener('click', function(e){
+    //Checks to see if the search-bar is empty
     if (document.querySelector('#search-bar').value === ''){
+        //if it is send an alert asking the user for a zip code then reset the page
         alert('Enter a zip code');
         secondPage.style.display = 'block';
         firstPage.style.display = 'none';
     } else {
+        //otherwise, run as normal
         e.preventDefault;
         setHotelLocations();
     }
@@ -29,8 +32,6 @@ firstButton.addEventListener('click', function(e){
         secondPage.style.display = 'none';
         firstPage.style.display = 'block';
     } 
-    
-    
 });
 
 //Adding click function to HOME text
