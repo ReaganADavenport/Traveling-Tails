@@ -80,6 +80,7 @@ body {
     padding: 8px;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    background-color: #faf2d7;
 }
 
 #search-bar:focus, #first-page-button:focus,#hotels-button:focus, #parks-button:focus, #vets-button:focus, #stores-button:focus, #restaurant-button:focus {
@@ -97,6 +98,7 @@ body {
     margin: 20px 0 60px 0;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    background-color: #faf2d7;
 }
 
 #first-page-button:hover {
@@ -140,6 +142,7 @@ body {
     margin: 0;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    background-color: #faf2d7;
 }
 
 .where-buttons-wrap {
