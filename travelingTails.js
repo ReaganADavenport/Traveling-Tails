@@ -11,23 +11,27 @@ const homeText =document.querySelector('.home-text');
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 
-
-function pressButton() {
-    firstButton.addEventListener('click', function(e){
+firstButton.addEventListener('click', function(e){
+    if (document.querySelector('#search-bar').value === ''){
+        alert('Please enter a location');
+        secondPage.style.display = 'block';
+        firstPage.style.display = 'none';
+    } else {
         e.preventDefault;
         setHotelLocations();
-        // toggle(secondPage);
-        if (secondPage.style.display === 'none') {
-            secondPage.style.display = 'block';
-            firstPage.style.display = 'none';
-        } else {
-            secondPage.style.display = 'none';
-            firstPage.style.display = 'block';
-        }    
-    });
-}
+    }
+    
+    // toggle(secondPage);
+    if (secondPage.style.display === 'none') {
+        secondPage.style.display = 'block';
+        firstPage.style.display = 'none';
+    } else {
+        secondPage.style.display = 'none';
+        firstPage.style.display = 'block';
+    } 
+        
+});
 
-pressButton();
 
 //Adding click function to HOME text
 homeText.addEventListener('click', function(e){
@@ -246,7 +250,7 @@ function setStoreLocations() {
         const rateArray = coordArray[3];
         const iconImage = storeIcon.src;
         markPlaces(nameArray,rateArray,latArray,longArray, latArray,longArray, iconImage);
-        });
+    });
 
 };
 
@@ -316,8 +320,6 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         let infoWindow = new google.maps.InfoWindow({
             content: url+ `<h2>${rating[i]}</h2>`,
         });
-
-        
 
         marker.addListener('click', function(){
             infoWindow.open(map, marker);
