@@ -75,6 +75,10 @@ body {
     font-family: 'Rammetto One', cursive;
 }
 
+#search-bar:focus {
+    outline:none;
+}
+
 #first-page-button {
     display: flex;
     align-self: center;

@@ -11,18 +11,23 @@ const homeText =document.querySelector('.home-text');
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 
-firstButton.addEventListener('click', function(e){
-    e.preventDefault;
-    setHotelLocations();
-    // toggle(secondPage);
-    if (secondPage.style.display === 'none') {
-        secondPage.style.display = 'block';
-        firstPage.style.display = 'none';
-    } else {
-        secondPage.style.display = 'none';
-        firstPage.style.display = 'block';
-    }    
-});
+
+function pressButton() {
+    firstButton.addEventListener('click', function(e){
+        e.preventDefault;
+        setHotelLocations();
+        // toggle(secondPage);
+        if (secondPage.style.display === 'none') {
+            secondPage.style.display = 'block';
+            firstPage.style.display = 'none';
+        } else {
+            secondPage.style.display = 'none';
+            firstPage.style.display = 'block';
+        }    
+    });
+}
+
+pressButton();
 
 //Adding click function to HOME text
 homeText.addEventListener('click', function(e){
