@@ -13,7 +13,7 @@ const firstPage = document.querySelector('#inner-body-wrapper');
 
 firstButton.addEventListener('click', function(e){
     if (document.querySelector('#search-bar').value === ''){
-        alert('Enter a zip code');
+        alert('Please enter a location');
         secondPage.style.display = 'block';
         firstPage.style.display = 'none';
     } else {
@@ -29,9 +29,9 @@ firstButton.addEventListener('click', function(e){
         secondPage.style.display = 'none';
         firstPage.style.display = 'block';
     } 
-    
-    
+        
 });
+
 
 //Adding click function to HOME text
 homeText.addEventListener('click', function(e){
