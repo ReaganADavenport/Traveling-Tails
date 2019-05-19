@@ -34,6 +34,7 @@ firstButton.addEventListener('click', function(e){
     } 
 });
 
+
 //Adding click function to HOME text
 homeText.addEventListener('click', function(e){
     e.preventDefault;

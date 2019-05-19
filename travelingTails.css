@@ -75,6 +75,10 @@ body {
     font-family: 'Rammetto One', cursive;
 }
 
+#search-bar:focus, #first-page-button:focus,#hotels-button:focus, #parks-button:focus, #vets-button:focus, #stores-button:focus, #restaurant-button:focus {
+    outline:none;
+}
+
 #first-page-button {
     display: flex;
     align-self: center;
@@ -87,6 +91,7 @@ body {
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
 }
+
 
 #first-page-button:hover {
     background-color: rgba(210, 59, 59, 0.913);
