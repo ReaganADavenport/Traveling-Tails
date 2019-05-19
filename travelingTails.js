@@ -317,7 +317,7 @@ function setRestaurantLocations() {
 //Making the map, setting it to the first coordinates in the location inputed Array
 function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, iconPix) {
     const options = {
-        zoom: 10,
+        zoom: 11,
         //took out [0]s 
         center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
     }

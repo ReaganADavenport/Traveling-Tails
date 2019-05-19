@@ -10,6 +10,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #c5dfe2;
 }
 
 .home-text {
@@ -50,6 +51,8 @@ body {
 .pix-blurb-wrap {
     display: flex;
     flex-direction: column;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
 }
 
 .first-dog {
@@ -78,7 +81,9 @@ body {
     width: 100%;
     padding: 8px;
     font-weight: bold;
-    font-family: 'Rammetto One', cursive;
+    font-family: 'Indie Flower', cursive;
+    background-color: #faf2d7;
+    font-size: 16px;
 }
 
 #search-bar:focus, #first-page-button:focus,#hotels-button:focus, #parks-button:focus, #vets-button:focus, #stores-button:focus, #restaurant-button:focus {
@@ -96,6 +101,7 @@ body {
     margin: 20px 0 60px 0;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    background-color: #faf2d7;
 }
 
 #first-page-button:hover {
@@ -136,16 +142,22 @@ body {
     margin: 0;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    background-color: #faf2d7;
 }
 
 .where-buttons-wrap {
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+
+.icon-style {
+    border-radius: 50%;
+    border: 1px solid #B22222;
 }
 
 
-@media only screen and (min-width: 600px) {
-    
+@media only screen and (min-width: 400px) {
     .map-dog-wrap {
         display: flex;
         flex-direction: row;   
@@ -182,7 +194,9 @@ body {
         height: 108px;
         width: 108px;
         border-radius: 50%;
+        border: 6px;
         margin: 26px;
         
     }
     
+}
