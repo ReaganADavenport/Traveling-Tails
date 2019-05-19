@@ -146,6 +146,11 @@ body {
     justify-content: center;
 }
 
+.icon-style {
+    border-radius: 50%;
+    border: 1px solid #B22222;
+}
+
 #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
     background-color: tan;
 }
