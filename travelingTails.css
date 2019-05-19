@@ -75,7 +75,7 @@ body {
     font-family: 'Rammetto One', cursive;
 }
 
-#search-bar:focus {
+#search-bar:focus, #first-page-button:focus,#hotels-button:focus, #parks-button:focus, #vets-button:focus, #stores-button:focus, #restaurant-button:focus {
     outline:none;
 }
 
@@ -91,6 +91,7 @@ body {
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
 }
+
 
 #first-page-button:hover {
     background-color: rgba(210, 59, 59, 0.913);
@@ -159,6 +160,7 @@ infoWindow{
 #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
     background-color: tan;
 }
+
 
 
 
