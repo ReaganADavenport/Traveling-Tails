@@ -11,6 +11,23 @@ const homeText =document.querySelector('.home-text');
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 
+//Bending the title
+circularText("                 Traveling Tails", 230, 0);
+function circularText(txt, radius, classIndex) {
+  txt = txt.split(""),
+    classIndex = document.getElementsByClassName("circTxt")[classIndex];
+
+  var deg = 360 / txt.length,
+    origin = 86;
+
+  txt.forEach((ea) => {
+    ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`;
+    classIndex.innerHTML += ea;
+    origin += deg;
+  });
+}
+
+//Button for search bar
 firstButton.addEventListener('click', function(e){
     if (document.querySelector('#search-bar').value === ''){
         alert('Please enter a location');
@@ -43,6 +60,7 @@ homeText.addEventListener('click', function(e){
     }     
 });
 
+//Click functions for the locations buttons
 parksButton.addEventListener('click', function(e) {
     e.preventDefault;
     setParkLocations();
@@ -68,7 +86,7 @@ restaurantButton.addEventListener('click', function(e) {
     setRestaurantLocations();
 });
 
-
+//Function to grab and return the data
 function get(url) {
     return fetch(url)
         .then(function(response) {
@@ -81,8 +99,6 @@ function get(url) {
             return error;
         });
 };
-
-// This is correct and the path is correct
 
 function setHotelLocations() {
     // Grabbing the user input
@@ -258,8 +274,7 @@ function setRestaurantLocations() {
     // Grabbing the user input
     const locationInput = document.querySelector('#search-bar').value;
 
-    // Grabbing the API library for parks and inputing the user input
-
+    // Grabbing the API library for restaurants and inputing the user input
     let restaurantInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
   
     //Setting and creating icon
@@ -317,13 +332,33 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
         url === headName;
 
-        let infoWindow = new google.maps.InfoWindow({
-            content: url+ `<h2>${rating[i]}</h2>`,
-        });
+        if (rating[i] === '' || rating[i] === 0) {
+            let infoWindow = new google.maps.InfoWindow({
+                    content: url+ "<h2>This place has no rating yet!</h2>"
+                    // content: url+ `<h2>${rating[i]}</h2>`
+            });
 
-        marker.addListener('click', function(){
-            infoWindow.open(map, marker);
+            marker.addListener('click', function(){
+                console.log("Zero is working")
+                infoWindow.open(map, marker);
+            });
+
+        } else {
+            let infoWindow = new google.maps.InfoWindow({
+                // content: url+ "<h2>This place has no rating yet!</h2>"
+                content: url+ `<h2>${rating[i]}</h2>`
+            });
+            
+            marker.addListener('click', function(){
+                console.log("Else is working")
+                infoWindow.open(map, marker);
+            
+            });
+        }
+
+        // marker.addListener('click', function(){
+        //     infoWindow.open(map, marker);
         
-        })
+        // })
     }
 }

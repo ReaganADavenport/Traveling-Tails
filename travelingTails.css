@@ -33,12 +33,18 @@ body {
 
 .inner-body-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
 }
 
 .title {
     font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    width: 500px;
+    height: 150px;
+    
 }
 
 .pix-blurb-wrap {
@@ -92,10 +98,10 @@ body {
     font-family: 'Rammetto One', cursive;
 }
 
-
 #first-page-button:hover {
     background-color: rgba(210, 59, 59, 0.913);
 }
+
 #second-page{
     width: 98%;
     display: flex;
@@ -161,43 +167,6 @@ infoWindow{
     background-color: tan;
 }
 
-
-
-
-/* @media only screen and (min-width: 600px) {
-    #second-page{
-        width: 50%;
-    }
-} */
-
-
-
-
-
-
-
-
-
-
-/* .title {
-    display: flex;
-    align-content: center;
-} */
-/* svg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 4;
-}
-
-#curve {
-    fill:transparent;
-}
-
-text {
-    fill: #6B7A8F;
-} */
 
 
 
