@@ -33,12 +33,18 @@ body {
 
 .inner-body-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
 }
 
 .title {
     font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    width: 500px;
+    height: 150px;
+    
 }
 
 .pix-blurb-wrap {
@@ -92,7 +98,6 @@ body {
     font-family: 'Rammetto One', cursive;
 }
 
-
 #first-page-button:hover {
     background-color: rgba(210, 59, 59, 0.913);
 }
@@ -140,6 +145,9 @@ body {
     justify-content: center;
 }
 
+#hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
+    background-color: tan;
+}
 
 @media only screen and (min-width: 600px) {
     
@@ -186,8 +194,3 @@ body {
         font-family: 'Rammetto One', cursive;
     }
     
-    #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
-        background-color: tan;
-    }
-
-}
