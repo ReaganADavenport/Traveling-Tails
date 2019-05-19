@@ -17,7 +17,7 @@ function circularText(txt, radius, classIndex) {
   txt = txt.split(""),
     classIndex = document.getElementsByClassName("circTxt")[classIndex];
 
-  var deg = 360 / txt.length,
+  let deg = 360 / txt.length,
     origin = 86;
 
   txt.forEach((ea) => {
