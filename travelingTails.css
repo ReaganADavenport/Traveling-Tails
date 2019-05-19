@@ -51,6 +51,8 @@ body {
 .pix-blurb-wrap {
     display: flex;
     flex-direction: column;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
 }
 
 .first-dog {
@@ -79,8 +81,9 @@ body {
     width: 100%;
     padding: 8px;
     font-weight: bold;
-    font-family: 'Rammetto One', cursive;
+    font-family: 'Indie Flower', cursive;
     background-color: #faf2d7;
+    font-size: 16px;
 }
 
 #search-bar:focus, #first-page-button:focus,#hotels-button:focus, #parks-button:focus, #vets-button:focus, #stores-button:focus, #restaurant-button:focus {
