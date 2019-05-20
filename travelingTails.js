@@ -15,6 +15,7 @@ const dogImage = document.querySelector('.image-dog2');
 
 
 //Bending the title
+//Credit to: https://appendto.com/2016/09/how-to-make-circularcurved-text-with-javascript/
 circularText("                 Traveling Tails", 230, 0);
 function circularText(txt, radius, classIndex) {
   txt = txt.split(""),
@@ -358,17 +359,17 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
 
         let headName = `<h2>${name[i]}</h2>`;
         let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
-        url === headName;
-
+        // url === headName;
+        
         if (rating[i] === '' || rating[i] === 0) {
-            let infoWin = new google.maps.InfoWindow({
-                content: url+ "<h2>This place has no rating yet!</h2>"
+            let infoWindow = new google.maps.InfoWindow({
+                    content: url+ "<h2>This place has no rating yet!</h2>"                   
                     // content: url+ `<h2>${rating[i]}</h2>`
             });
 
             marker.addListener('click', function(){
-                console.log("Zero is working")
-                infoWin.open(map, marker);
+                console.log("Zero is working");
+                infoWindow.open(map, marker);
             });
 
         } else {
@@ -378,8 +379,9 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             });
             
             marker.addListener('click', function(){
-                console.log("Else is working")
-                infoWin.open(map, marker);
+                console.log("Else is working");
+                // infoWindow.classList.add('map-pop-screen-style');
+                infoWindow.open(map, marker);
             
             });
         }

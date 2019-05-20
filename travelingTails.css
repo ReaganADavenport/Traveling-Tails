@@ -36,18 +36,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
+    width: 100%;
 }
 
-
-
-.title {
-    font-size: 45px;
+.small-title-wrap {
     display: flex;
     justify-content: center;
     align-self: flex-start;
-    width: 500px;
-    height: 150px;
-    
+}
+
+.title {
+    display: none;
 }
 
 .circTxt{
@@ -83,7 +83,7 @@ body {
 .bar-button-wrap {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    /* width: 60%; */
 }
 
 #search-bar {
@@ -141,6 +141,11 @@ body {
     border-radius: 5%;
 }
 
+.map-pop-screen-style {
+    text-decoration: none;
+    color: red;
+}
+
 .blurb-dog-wrap {
     display: none;
 }
@@ -179,17 +184,19 @@ body {
 }
 
 
-@media only screen and (min-width: 400px) {
-    #search-bar {
-        max-width: 35rem;
+@media only screen and (min-width: 430px) {
+
+    .small-title-wrap {
+        display: none;
     }
-    
-    .plainTxt{
-        display:none;
-    }
-    
-    .circTxt {
-        display: block;
+
+    .title {
+        font-size: 45px;
+        display: flex;
+        justify-content: center;
+        align-self: flex-start;
+        width: 500px;
+        height: 150px;
     }
 
     .map-dog-wrap {
