@@ -364,7 +364,7 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             });
 
         } else {
-            let infoWindow = new google.maps.infoWindow({
+            let infoWindow = new google.maps.InfoWindow({
                 // content: url+ "<h2>This place has no rating yet!</h2>"
                 content: url+ `<h2>${rating[i]}</h2>`
             });
