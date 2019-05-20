@@ -38,6 +38,8 @@ body {
     justify-content: center;
 }
 
+
+
 .title {
     font-size: 45px;
     display: flex;
@@ -46,6 +48,15 @@ body {
     width: 500px;
     height: 150px;
     
+}
+
+.circTxt{
+    display: none;
+}
+
+.plainTxt{
+    display:flex;
+    flex-wrap: wrap;
 }
 
 .pix-blurb-wrap {
@@ -72,12 +83,13 @@ body {
 .bar-button-wrap {
     display: flex;
     flex-direction: column;
+    align-content: center;
 }
 
 #search-bar {
     border-radius: 25px;
     border: 3px solid black;
-    max-width: 35rem;
+    max-width: 320px;
     width: 100%;
     padding: 8px;
     font-weight: bold;
@@ -168,6 +180,18 @@ body {
 
 
 @media only screen and (min-width: 400px) {
+    #search-bar {
+        max-width: 35rem;
+    }
+    
+    .plainTxt{
+        display:none;
+    }
+    
+    .circTxt {
+        display: block;
+    }
+
     .map-dog-wrap {
         display: flex;
         flex-direction: row;   

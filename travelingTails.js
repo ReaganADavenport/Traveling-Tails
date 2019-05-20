@@ -12,6 +12,8 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 const dogImage = document.querySelector('.image-dog2');
 
+
+
 //Bending the title
 circularText("                 Traveling Tails", 230, 0);
 function circularText(txt, radius, classIndex) {
@@ -33,10 +35,14 @@ firstButton.addEventListener('click', function(e){
     //Checks to see if the search-bar is empty
     if (document.querySelector('#search-bar').value === ''){
         //if it is send an alert asking the user for a zip code then reset the page
-        alert('Enter a zip code');
+        alert('Enter a valid location');
         secondPage.style.display = 'block';
         firstPage.style.display = 'none';
-    } else {
+    } 
+    // else if(document.querySelector('#search-bar').value === ){
+        
+    // } 
+    else {
         //otherwise, run as normal
         e.preventDefault;
         setHotelLocations();
@@ -351,25 +357,25 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         url === headName;
 
         if (rating[i] === '' || rating[i] === 0) {
-            let infoWindow = new google.maps.infoWindow({
+            let infoWin = new google.maps.InfoWindow({
                 content: url+ "<h2>This place has no rating yet!</h2>"
                     // content: url+ `<h2>${rating[i]}</h2>`
             });
 
             marker.addListener('click', function(){
                 console.log("Zero is working")
-                infoWindow.open(map, marker);
+                infoWin.open(map, marker);
             });
 
         } else {
-            let infoWindow = new google.maps.InfoWindow({
+            let infoWin = new google.maps.InfoWindow({
                 // content: url+ "<h2>This place has no rating yet!</h2>"
                 content: url+ `<h2>${rating[i]}</h2>`
             });
             
             marker.addListener('click', function(){
                 console.log("Else is working")
-                infoWindow.open(map, marker);
+                infoWin.open(map, marker);
             
             });
         }
