@@ -131,8 +131,6 @@ body {
     padding: 0;
 }
 
-
-
 .image-dog2 {
     display: none;
 }
@@ -170,6 +168,7 @@ body {
         justify-content: center;
     }
     
+
     #map {
         /* justify-content: center; */
         height: 500px;
@@ -186,9 +185,25 @@ body {
         height: 200px;
         align-self: flex-end;
     }
-    
+
+    .blurb-dog-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .dog-blurb-style {
+        width: 200px;
+        height: 240px;
+        padding: 8px;
+        font-family: 'Indie Flower', cursive;
+        display: flex;
+        align-self: center;
+        align-content: center;
+    }
+
     .image-dog2 {
-        display:block;
+        display: block;
         background-image: url('https://media.giphy.com/media/5zvSNDhOQF2WqmHsDJ/giphy.gif');
         background-size: cover;
         height: 100%;

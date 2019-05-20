@@ -10,6 +10,7 @@ const homeText =document.querySelector('.home-text');
 
 const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
+const dogImage = document.querySelector('.image-dog2');
 
 //Bending the title
 circularText("                 Traveling Tails", 230, 0);
@@ -51,7 +52,6 @@ firstButton.addEventListener('click', function(e){
     } 
 });
 
-
 //Adding click function to HOME text
 homeText.addEventListener('click', function(e){
     e.preventDefault;
@@ -61,6 +61,22 @@ homeText.addEventListener('click', function(e){
         secondPage.style.display = 'none';
     }     
 });
+
+//Dog Quote Portion
+dogImage.addEventListener('click', function(e) {
+    e.preventDefault;
+        dogQuote(); 
+});
+
+function dogQuote() {
+    const dogInfo = 'https://my-little-cors-proxy.herokuapp.com/https://dog-api.kinduff.com/api/facts?number=2';
+    const dogText = document.querySelector('.dog-blurb-style');
+    get(dogInfo)
+    .then(function(response) {
+        dogText.innerHTML = response.facts;   
+    });
+}
+
 
 //Click functions for the locations buttons
 parksButton.addEventListener('click', function(e) {
