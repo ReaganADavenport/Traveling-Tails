@@ -341,7 +341,6 @@ function setRestaurantLocations() {
 function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, iconPix) {
     const options = {
         zoom: 11,
-        //took out [0]s 
         center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
     }
     let map = new google.maps.Map(document.getElementById('map'), options);
@@ -352,6 +351,7 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             map: map,
             icon: iconPix
         });
+        // google.maps.MarkerOptions({clickable: true})
 
         let headName = `<h2>${name[i]}</h2>`;
         let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
