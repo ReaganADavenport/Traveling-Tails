@@ -89,7 +89,7 @@ body {
 #search-bar {
     border-radius: 25px;
     border: 3px solid black;
-    max-width: 320px;
+    max-width: 35rem;
     width: 100%;
     padding: 8px;
     font-weight: bold;
