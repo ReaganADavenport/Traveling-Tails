@@ -173,6 +173,7 @@ body {
     font-family: 'Rammetto One', cursive; 
     font-size: 12px;
     background-color: #faf2d7;
+    font-size: 12px;
 }
 
 .where-buttons-wrap {
@@ -180,13 +181,17 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    /* REAGAN */
+    flex-wrap: wrap;
 }
 
 .icon-style:hover {
     opacity: 0.5;
 }
 
-
+/* #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
+    background-color: tan;
+} */
 
 
 @media only screen and (min-width: 430px) {
@@ -267,7 +272,6 @@ body {
 
     #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
         background-color: tan;
-     }
-    
+    }
     
 }
