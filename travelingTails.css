@@ -131,6 +131,17 @@ body {
     padding: 0;
 }
 
+.blurb-dog-wrap {
+    display: none;
+}
+
+.dog-blurb-style {
+    display: none;
+}
+.dog-wrapper {
+    display: none;
+}
+
 .image-dog2 {
     display: none;
 }
@@ -179,13 +190,6 @@ body {
         padding: 0;
     }
 
-    .dog-wrapper {
-        display: flex;
-        width: 200px;
-        height: 200px;
-        align-self: flex-end;
-    }
-
     .blurb-dog-wrap {
         display: flex;
         flex-direction: column;
@@ -200,6 +204,13 @@ body {
         display: flex;
         align-self: center;
         align-content: center;
+    }
+
+    .dog-wrapper {
+        display: flex;
+        width: 200px;
+        height: 200px;
+        align-self: flex-end;
     }
 
     .image-dog2 {
