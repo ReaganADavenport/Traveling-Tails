@@ -166,14 +166,16 @@ body {
     width: 75px;
     border-radius: 50%;
     border: 2px solid #B22222;
-    margin: 0;
+    margin: 5px;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    font-size: 
     background-color: #faf2d7;
 }
 
 .where-buttons-wrap {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
 }
@@ -250,6 +252,7 @@ body {
     }
 
     #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
+        border: 2px solid #B22222;
         cursor: pointer;
         transition: all ease-in-out 0.2s;
         height: 108px;
