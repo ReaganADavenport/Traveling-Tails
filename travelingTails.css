@@ -50,6 +50,15 @@ body {
     display: none;
 }
 
+.circTxt{
+    display: none;
+}
+
+.plainTxt{
+    display:flex;
+    flex-wrap: wrap;
+}
+
 .pix-blurb-wrap {
     display: flex;
     flex-direction: column;
@@ -80,7 +89,7 @@ body {
 #search-bar {
     border-radius: 25px;
     border: 3px solid black;
-    max-width: 35rem;
+    max-width: 320px;
     width: 100%;
     padding: 8px;
     font-weight: bold;
