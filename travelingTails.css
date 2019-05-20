@@ -50,6 +50,15 @@ body {
     display: none;
 }
 
+.circTxt{
+    display: none;
+}
+
+.plainTxt{
+    display:flex;
+    flex-wrap: wrap;
+}
+
 .pix-blurb-wrap {
     display: flex;
     flex-direction: column;
@@ -80,7 +89,7 @@ body {
 #search-bar {
     border-radius: 25px;
     border: 3px solid black;
-    max-width: 35rem;
+    max-width: 320px;
     width: 100%;
     padding: 8px;
     font-weight: bold;
@@ -162,12 +171,14 @@ body {
     margin: 5px;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
+    font-size: 
     background-color: #faf2d7;
     font-size: 12px;
 }
 
 .where-buttons-wrap {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     /* REAGAN */
@@ -181,6 +192,7 @@ body {
 /* #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
     background-color: tan;
 } */
+
 
 
 @media only screen and (min-width: 430px) {
@@ -208,7 +220,6 @@ body {
         /* justify-content: center; */
         height: 500px;
         width: 650px;
-        border-radius: 5%;
         border: 3px solid black;
         margin: 0;
         padding: 0;
@@ -250,16 +261,14 @@ body {
     }
 
     #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
+        border: 2px solid #B22222;
         cursor: pointer;
         transition: all ease-in-out 0.2s;
         height: 108px;
         width: 108px;
         border-radius: 50%;
-        border: 6px solid #B22222;
-        margin: 34px;
-        font-weight: bold;
-        font-family: 'Rammetto One', cursive;
-        font-size: 16px;
+        border: 6px;
+        margin: 26px;
     }
 
     #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{

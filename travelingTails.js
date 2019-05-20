@@ -12,6 +12,8 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 const dogImage = document.querySelector('.image-dog2');
 
+
+
 //Bending the title
 //Credit to: https://appendto.com/2016/09/how-to-make-circularcurved-text-with-javascript/
 circularText("                 Traveling Tails", 230, 0);
@@ -34,7 +36,7 @@ firstButton.addEventListener('click', function(e){
     //Checks to see if the search-bar is empty
     if (document.querySelector('#search-bar').value === ''){
         //if it is send an alert asking the user for a zip code then reset the page
-        alert('Enter a zip code');
+        alert('Enter a valid location');
         secondPage.style.display = 'block';
         firstPage.style.display = 'none';
     } else {
@@ -112,7 +114,13 @@ function get(url) {
             return response.json()
         })
         .then(function(data) {
-           return data;
+            if (data.status === "ZERO_RESULTS"){
+                alert('Enter a valid location');
+                secondPage.style.display = 'none';
+                firstPage.style.display = 'block';
+            } else {
+                return data;
+            } 
         })
         .catch(function(error) {
             return error;
@@ -334,11 +342,13 @@ function setRestaurantLocations() {
 };
 //Making the map, setting it to the first coordinates in the location inputed Array
 function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, iconPix) {
+    // console.log(data.status);
     const options = {
         zoom: 11,
         //took out [0]s 
         center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
     }
+    
     let map = new google.maps.Map(document.getElementById('map'), options);
     //Places a marker on each location
     for (let i = 0; i <= latitude.length; i++) {
@@ -364,7 +374,7 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             });
 
         } else {
-            let infoWindow = new google.maps.InfoWindow({
+            let infoWin = new google.maps.InfoWindow({
                 // content: url+ "<h2>This place has no rating yet!</h2>"
                 content: url+ `<h2>${rating[i]}</h2>`
             });
@@ -377,9 +387,5 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
             });
         }
 
-        // marker.addListener('click', function(){
-        //     infoWindow.open(map, marker);
-        
-        // })
     }
 }
