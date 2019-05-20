@@ -317,7 +317,7 @@ function setRestaurantLocations() {
         let nameArray = [];
         let rateArray = [];
         results.forEach((result) => {
-            // console.log("result is", result);
+            
             const lat = Number(result.geometry.location.lat);
             const long = Number(result.geometry.location.lng);
             const name = String(result.name);
@@ -360,32 +360,15 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
 
         let headName = `<h2>${name[i]}</h2>`;
         let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
-        // url === headName;
         
-        if (rating[i] === '' || rating[i] === 0) {
-            let infoWindow = new google.maps.InfoWindow({
-                    content: url+ "<h2>This place has no rating yet!</h2>"                   
-                    // content: url+ `<h2>${rating[i]}</h2>`
-            });
-
-            marker.addListener('click', function(){
-                console.log("Zero is working");
-                infoWindow.open(map, marker);
-            });
-
-        } else {
-            let infoWin = new google.maps.InfoWindow({
-                // content: url+ "<h2>This place has no rating yet!</h2>"
-                content: url+ `<h2>${rating[i]}</h2>`
-            });
+        let infoWindow = new google.maps.InfoWindow({
+            content: url+ `<h2>${rating[i]}</h2>`+'<h4>*If the rating is 0, it may mean that there is no rating for this location</h4>'
+        });
             
-            marker.addListener('click', function(){
-                console.log("Else is working");
-                // infoWindow.classList.add('map-pop-screen-style');
-                infoWindow.open(map, marker);
-            
-            });
-        }
+        marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+        });
+        
 
     }
 }
