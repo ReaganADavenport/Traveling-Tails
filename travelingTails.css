@@ -84,7 +84,7 @@ body {
     width: 100%;
     padding: 8px;
     font-weight: bold;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Kodchasan';
     background-color: #faf2d7;
     font-size: 16px;
 }
@@ -134,9 +134,9 @@ body {
     padding: 0;
 }
 
-.map-pop-screen-style {
+.gm-style-iw-d a {
     text-decoration: none;
-    color: red;
+    font-family: 'Rammetto One', cursive;
 }
 
 .blurb-dog-wrap {
@@ -171,17 +171,16 @@ body {
     width: 100%;
 }
 
-.icon-style {
-    border-radius: 50%;
-    border: 1px solid #B22222;
+.icon-style:hover {
+    opacity: 0.5;
 }
 
 #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
     background-color: tan;
 }
 
-@media only screen and (min-width: 430px) {
 
+@media only screen and (min-width: 430px) {
     .small-title-wrap {
         display: none;
     }
