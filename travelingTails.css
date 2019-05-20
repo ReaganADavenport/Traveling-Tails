@@ -242,6 +242,10 @@ body {
         width: 100%;
     }
 
+    .image-dog2:hover {
+        opacity: 0.5;
+    }
+
     #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
         cursor: pointer;
         transition: all ease-in-out 0.2s;
