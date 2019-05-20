@@ -134,6 +134,7 @@ function setHotelLocations() {
     let hotelInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Adding in the hotel icon 
     let hotelIcon = document.createElement('img');
+    // hotelIcon.classList.add('.icon-style');
     hotelIcon.src = "Images/006-pet-house.png";
 
     get(hotelInfo)
