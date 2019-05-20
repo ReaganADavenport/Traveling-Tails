@@ -46,7 +46,7 @@ body {
     align-self: flex-start;
 }
 
-.title {
+.title1 {
     display: none;
 }
 
@@ -174,7 +174,12 @@ body {
     flex-wrap: wrap;
 }
 
-.icon-style:hover {
+.title {
+    height: 15px;
+    width: 15px;
+}
+
+.title:hover {
     opacity: 0.5;
 }
 
@@ -188,7 +193,7 @@ body {
         display: none;
     }
 
-    .title {
+    .title1 {
         font-size: 45px;
         display: flex;
         justify-content: center;
