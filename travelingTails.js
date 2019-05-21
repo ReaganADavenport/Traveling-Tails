@@ -262,6 +262,7 @@ function setStoreLocations() {
     //Setting and creating icon
     let storeIcon = document.createElement('img');
     storeIcon.src = "Images/animal-paw-print.png";
+    storeIcon.classList.add('.icon-stylez');
 
     get(storesInfo)
     .then(function(response) {
@@ -349,9 +350,10 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         let marker = new google.maps.Marker({
             position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
             map: map,
-            icon: iconPix
+            icon: {
+                url: iconPix,
+                optimized: false}
         });
-        // google.maps.MarkerOptions({clickable: true})
 
         let headName = `<h2>${name[i]}</h2>`;
         let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);

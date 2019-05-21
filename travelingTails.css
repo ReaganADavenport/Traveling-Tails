@@ -217,7 +217,7 @@ body {
         margin: 0;
         padding: 0;
     }
-
+    
     .blurb-dog-wrap {
         display: flex;
         flex-direction: column;
@@ -275,6 +275,29 @@ body {
 @media screen and (orientation: landscape) 
 and (min-device-width: 410px) 
 and (max-device-width: 732px) {
+
+    .pix-blurb-wrap {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Indie Flower', cursive;
+        font-size: 16px;
+    }
+    
+    .first-dog {
+        width: 150px;
+        height: 150px;
+    }
+
+    .small-title-wrap {
+        display: flex;
+        justify-content: center;
+        align-self: flex-start;
+    }
+
+    .title1 {
+        display: none;
+    }
+
     .blurb-dog-wrap {
         display: none;
     }
