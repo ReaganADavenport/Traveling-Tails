@@ -161,6 +161,10 @@ body {
     display: none;
 }
 
+.dog-prompt {
+    display: none;
+}
+
 #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
     height: 75px;
     width: 75px;
@@ -212,7 +216,6 @@ body {
     
 
     #map {
-        /* justify-content: center; */
         height: 500px;
         width: 650px;
         border-radius: 5%;
@@ -254,6 +257,12 @@ body {
 
     .image-dog2:hover {
         opacity: 0.5;
+    }
+
+    .dog-prompt {
+        display: flex;
+        justify-content: center;
+        align-self: center;
     }
 
     #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
