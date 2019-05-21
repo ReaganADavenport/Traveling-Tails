@@ -12,8 +12,6 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 const dogImage = document.querySelector('.image-dog2');
 
-
-
 //Bending the title
 //Credit to: https://appendto.com/2016/09/how-to-make-circularcurved-text-with-javascript/
 circularText("                 Traveling Tails", 230, 0);
@@ -36,7 +34,7 @@ firstButton.addEventListener('click', function(e){
     //Checks to see if the search-bar is empty
     if (document.querySelector('#search-bar').value === ''){
         //if it is send an alert asking the user for a zip code then reset the page
-        alert('Enter a valid location');
+        alert('Enter a a valid location.');
         secondPage.style.display = 'block';
         firstPage.style.display = 'none';
     } else {
@@ -134,8 +132,7 @@ function setHotelLocations() {
     let hotelInfo = `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Adding in the hotel icon 
     let hotelIcon = document.createElement('img');
-    // hotelIcon.classList.add('.icon-style');
-    hotelIcon.src = "Images/006-pet-house.png";
+    hotelIcon.src = "Images/dog-pawprint-in-a-house.png";
 
     get(hotelInfo)
     .then(function(response) {
@@ -177,7 +174,7 @@ function setParkLocations() {
     let parksInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=parks-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Adding in the park icon 
     let parkIcon = document.createElement('img');
-    parkIcon.src = "Images/002-sport.png";
+    parkIcon.src = "Images/tennis-ball.png";
 
     get(parksInfo)
     .then(function(response) {
@@ -220,7 +217,7 @@ function setVetLocations() {
     let vetsInfo= `https://my-little-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=vets-in-${locationInput}&key=AIzaSyBdsm65ywFiu-1TK-v03CKyD03g3T4i0AA&type=other_pet_services`;
     //Setting and creating icon
     let vetIcon = document.createElement('img');
-    vetIcon.src = "Images/005-stethoscope.png";
+    vetIcon.src = "Images/cardiogram.png";
 
     get(vetsInfo)
     .then(function(response) {
@@ -264,7 +261,8 @@ function setStoreLocations() {
 
     //Setting and creating icon
     let storeIcon = document.createElement('img');
-    storeIcon.src = "Images/003-commerce-and-shopping.png";
+    storeIcon.src = "Images/animal-paw-print.png";
+    storeIcon.classList.add('.icon-stylez');
 
     get(storesInfo)
     .then(function(response) {
@@ -307,7 +305,7 @@ function setRestaurantLocations() {
   
     //Setting and creating icon
     let restaurantIcon = document.createElement('img');
-    restaurantIcon.src = "Images/007-pet-food.png";
+    restaurantIcon.src = "Images/dog-food-bowl.png";
 
     get(restaurantInfo)
     .then(function(response) {
@@ -342,27 +340,26 @@ function setRestaurantLocations() {
 };
 //Making the map, setting it to the first coordinates in the location inputed Array
 function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, iconPix) {
-    // console.log(data.status);
     const options = {
         zoom: 11,
-        //took out [0]s 
         center: {lat:parseFloat(inDesLat[0]),lng:parseFloat(inDesLong[0])},
     }
-    
     let map = new google.maps.Map(document.getElementById('map'), options);
     //Places a marker on each location
     for (let i = 0; i <= latitude.length; i++) {
         let marker = new google.maps.Marker({
             position:{lat: parseFloat(latitude[i]), lng: parseFloat(longitude[i])},
             map: map,
-            icon: iconPix
+            icon: {
+                url: iconPix,
+                optimized: false}
         });
 
         let headName = `<h2>${name[i]}</h2>`;
         let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
         
         let infoWindow = new google.maps.InfoWindow({
-            content: url+ `<h2>${rating[i]}</h2>`+'<h4>*If the rating is 0, it may mean that there is no rating for this location</h4>'
+            content: url+ `<h2>Rating: ${rating[i]}</h2>`+'<h4>*If the rating is 0, it may mean that there is no rating for this location</h4>'
         });
             
         marker.addListener('click', function(){
@@ -370,5 +367,9 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         });
         
 
+        // marker.addListener('click', function(){
+        //     infoWindow.open(map, marker);
+        
+        // })
     }
 }
