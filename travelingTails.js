@@ -12,9 +12,12 @@ const secondPage = document.querySelector('#second-page');
 const firstPage = document.querySelector('#inner-body-wrapper');
 const dogImage = document.querySelector('.image-dog2');
 
+
+let screenHeight = window.visualViewport.height;
+let screenWidth = window.visualViewport.width;
 //Bending the title
 //Credit to: https://appendto.com/2016/09/how-to-make-circularcurved-text-with-javascript/
-circularText("                 Traveling Tails", 230, 0);
+// circularText("                 Traveling Tails", 230, 0);
 function circularText(txt, radius, classIndex) {
   txt = txt.split(""),
     classIndex = document.getElementsByClassName("circTxt")[classIndex];
@@ -29,12 +32,20 @@ function circularText(txt, radius, classIndex) {
   });
 }
 
+//Making it fit larger screen size
+if (screenWidth >= 1000) {
+    circularText("                  Traveling Tails", 400, 0);
+} else if (screenWidth < 1000) {
+    circularText("                 Traveling Tails", 230, 0);
+};
+
 //Button for search bar
 firstButton.addEventListener('click', function(e){
+    console.log(screenWidth);
     //Checks to see if the search-bar is empty
     if (document.querySelector('#search-bar').value === ''){
         //if it is send an alert asking the user for a zip code then reset the page
-        alert('Enter a a valid location.');
+        alert('Enter a valid location.');
         secondPage.style.display = 'block';
         firstPage.style.display = 'none';
     } else {
@@ -113,7 +124,7 @@ function get(url) {
         })
         .then(function(data) {
             if (data.status === "ZERO_RESULTS"){
-                alert('Enter a valid location');
+                alert('Enter a valid location.');
                 secondPage.style.display = 'none';
                 firstPage.style.display = 'block';
             } else {
@@ -356,20 +367,15 @@ function markPlaces(name, rating, latitude, longitude, inDesLat, inDesLong, icon
         });
 
         let headName = `<h2>${name[i]}</h2>`;
-        let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
-        
-        let infoWindow = new google.maps.InfoWindow({
-            content: url+ `<h2>Rating: ${rating[i]}</h2>`+'<h4>*If the rating is 0, it may mean that there is no rating for this location</h4>'
-        });
-            
-        marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-        });
-        
+       let url = headName.link(`https://www.google.com/search?q=${name[i]}&aqs=chrome.0.0l4.25261j0j8&sourceid=chrome&ie=UTF-8/`);
 
-        // marker.addListener('click', function(){
-        //     infoWindow.open(map, marker);
-        
-        // })
+       let infoWindow = new google.maps.InfoWindow({
+           content: url+ `<h2>Rating: ${rating[i]}</h2>`+'<h4>*If the rating is 0, it may mean that there is no rating for this location</h4>'
+       });
+
+       marker.addListener('click', function(){
+           infoWindow.open(map, marker);
+       });
+          
     }
 }
