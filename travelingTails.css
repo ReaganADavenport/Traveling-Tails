@@ -280,6 +280,31 @@ body {
     
 }
 
+@media only screen and (min-width: 1000px) {
+    .title1 {
+        font-size: 60px;
+        width: 680px;
+        height: 300px;
+    }
+ 
+    .pix-blurb-wrap {
+        font-size: 24px;
+    }
+ 
+    .first-dog {
+        width: 470px;
+        height: 470px;
+ 
+    }
+ 
+    #search-bar {
+        max-width: 50rem;
+        width: 100%;
+ 
+    }
+ }
+
+
 @media screen and (orientation: landscape) 
 and (min-device-width: 410px) 
 and (max-device-width: 732px) {
