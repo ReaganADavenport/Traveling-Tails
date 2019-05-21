@@ -109,6 +109,7 @@ body {
 
 #first-page-button:hover {
     background-color: rgba(210, 59, 59, 0.913);
+    transform: scale(1.1);
 }
 
 #second-page{
@@ -136,7 +137,13 @@ body {
 
 .gm-style-iw-d a {
     text-decoration: none;
+    color: #B22222;
     font-family: 'Rammetto One', cursive;
+}
+
+.gm-style-iw-d a:hover {
+    text-decoration: underline;
+    color: rgb(119, 23, 23);
 }
 
 .blurb-dog-wrap {
@@ -170,24 +177,20 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    /* REAGAN */
     flex-wrap: wrap;
 }
 
-.markers {
-    color: red;
-}
-
-.markers:hover {
-    color: blue;
-}
 
 /* #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
     background-color: tan;
 } */
 
-
+/* Desktop Size */
 @media only screen and (min-width: 430px) {
+    .home-text {
+        font-size: 17px;
+    }
+
     .small-title-wrap {
         display: none;
     }
@@ -268,10 +271,68 @@ body {
 
     #hotels-button:hover, #parks-button:hover, #vets-button:hover, #stores-button:hover, #restaurant-button:hover{
         background-color: tan;
+        transform: scale(1.1);
     }
     
 }
 
+/* Large Screen Size */
+@media only screen and (min-width: 1000px) {
+    .home-text {
+        font-size: 20px;
+    }
+
+    .title1 {
+        font-size: 60px;
+        width: 680px;
+        height: 300px;
+    }
+
+    .pix-blurb-wrap {
+        font-size: 24px;
+    }
+
+    .first-dog {
+        width: 470px;
+        height: 470px;
+       
+    }
+
+    #search-bar {
+        max-width: 50rem;
+        width: 100%;
+        
+    }
+
+    #first-page-button {
+        width: 80px;
+        height: 80px;
+        font-size: 17px;
+    }
+
+    #map {
+        height: 650px;
+        width: 800px; 
+    }
+
+    .dog-wrapper {
+        width: 350px;
+        height: 350px;
+    }
+
+    .dog-blurb-style {
+        font-size: 21px;
+    }
+
+    #hotels-button, #parks-button, #vets-button, #stores-button, #restaurant-button {
+        height: 135px;
+        width: 135px;
+        font-size: 18px;
+    }
+    
+}
+
+/* Mobile landscape screen styles */
 @media screen and (orientation: landscape) 
 and (min-device-width: 410px) 
 and (max-device-width: 732px) {
